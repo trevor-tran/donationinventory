@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/donation")
 public class DonationController {
@@ -30,8 +31,8 @@ public class DonationController {
         return ResponseEntity.ok(persistedDonation);
     }
 
-    @DeleteMapping(value = "")
-    public ResponseEntity<?> deleteDonationHandler(@RequestParam("donationId") UUID donationId) {
+    @DeleteMapping(value = "/{donationId}")
+    public ResponseEntity<?> deleteDonationHandler(@PathVariable("donationId") UUID donationId) {
         donationService.delete(donationId);
         return ResponseEntity.ok().build();
     }
