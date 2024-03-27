@@ -1,11 +1,11 @@
 import renderer from 'react-test-renderer';
-import App from './App';
+import UserInputForm from './UserInputForm';
 
-describe("App Page", () => {
+describe("UserInputForm Page", () => {
 
   it("verifies against its snapshot", () => {
     const tree = renderer
-      .create(<App />)
+      .create(<UserInputForm />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   })

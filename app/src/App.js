@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { useFormik } from 'formik';
+import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import {
   Table,
@@ -80,7 +79,7 @@ export default function App() {
                 <TableRow>
                   <TableCell>Donor's Name</TableCell>
                   <TableCell align="right">Type of Donation</TableCell>
-                  <TableCell align="right">Amount ($ or lb)</TableCell>
+                  <TableCell align="right">Amount</TableCell>
                   <TableCell align="right">Date</TableCell>
                   <TableCell align="right">Actions</TableCell>
                 </TableRow>
@@ -98,7 +97,7 @@ export default function App() {
                           {donor}
                         </TableCell>
                         <TableCell align="right">{type}</TableCell>
-                        <TableCell align="right">{amount}</TableCell>
+                        <TableCell align="right">{type === "Money" ? `$${amount}` : `${amount} lb.`}</TableCell>
                         <TableCell align="right">{dayjs(date).format("MMM. DD YYYY")}</TableCell>
                         <TableCell align="right">
                           <IconButton value={id} onClick={handleOpenEditDonation} sx={{marginRight: "20px"}}><EditIcon /></IconButton>
